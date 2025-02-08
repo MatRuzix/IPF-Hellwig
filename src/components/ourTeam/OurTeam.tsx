@@ -9,16 +9,17 @@ const OurTeam = () => {
     >
       <div className="my-[2%]">Nasz zespół</div>
       <div className="flex justify-around w-full h-full">
-        <div></div>
         <TeamDesContainer
           imageSrc={physiotherapists[0].imageSrc}
           name={physiotherapists[0].name}
           description={physiotherapists[0].description}
+          description2={physiotherapists[1].description2}
         />
         <TeamDesContainer
           imageSrc={physiotherapists[1].imageSrc}
           name={physiotherapists[1].name}
           description={physiotherapists[1].description}
+          description2={physiotherapists[1].description2}
         />
       </div>
     </div>
