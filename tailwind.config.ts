@@ -9,8 +9,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        znanylekarz: "rgb(0,195,165)",
+        znanylekarzHover: "rgb(1,215,186)",
+        logoBlue: "rgb(125,157,254)",
+      },
+      screens: {
+        "3xl": "2000px",
+        "h-lg": { raw: "(min-height: 1000px)" },
+      },
+      spacing: {
+        "88": "22rem",
       },
     },
   },
