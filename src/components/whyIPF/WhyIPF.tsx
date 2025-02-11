@@ -5,7 +5,7 @@ import TextContainer from "./TextContainer";
 const WhyIPF = () => {
   return (
     <div
-      className="flex text-6xl w-full h-[calc(100vh-144px)] bg-slate-100 space-y-6 relative"
+      className="flex text-6xl w-full h-[calc(100vh-144px)] bg-slate-100 space-y-6 relative pb-5"
       id="why-us"
     >
       <div className="flex w-full h-full items-center overflow-hidden absolute z-[11]">
@@ -34,18 +34,11 @@ const WhyIPF = () => {
             </div>
           </div>
         </div>
-        <div
-          className="w-1/3 h-full absolute -left-2 top-10 scale-[125%] overflow-hidden scale-x-[-1] opacity-85"
-          style={{
-            maskImage:
-              "linear-gradient(to bottom, transparent, white 0%, white 50%, transparent 80%)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent, white 0%, white 80%, transparent)",
-          }}
-        >
+        <div className="w-1/3 h-full absolute -left-2 top-10 scale-[125%] overflow-hidden scale-x-[-1] opacity-85">
           <Image src="/krystian_thumb.png" alt="krystian-thumb" fill />
         </div>
       </div>
+      <div className="absolute w-full h-full bg-gradient-to-b from-transparent from-[82%] to-[93%] to-slate-100 z-[11] pointer-events-none" />
     </div>
   );
 };

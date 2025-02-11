@@ -15,6 +15,7 @@ const Treatments = () => {
       <div className="flex w-full h-full justify-center items-center">
         <TreatmentCarousel slides={SLIDES} options={OPTIONS} />
       </div>
+      <div className="absolute w-full h-full bg-gradient-to-b from-transparent from-[90%] to-[92%] to-slate-100 z-[11] pointer-events-none" />
     </div>
   );
 };
