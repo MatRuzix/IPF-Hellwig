@@ -30,7 +30,7 @@ const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
         animate={{ opacity: isHovered ? 0.7 : 0 }}
         transition={{ duration: 0.5 }}
       />
-      <div className="absolute w-full h-full bg-gradient-to-b from-transparent from-[82%] to-[93%] to-slate-100 z-[11] pointer-events-none" />
+      <div className="absolute w-full h-full bg-gradient-to-b from-transparent from-[75%] to-[82%] to-slate-100 z-[11] pointer-events-none" />
       <motion.div
         className="absolute w-full h-full z-30 text-sm flex flex-col px-6 space-y-3 item-center justify-center font-extrabold"
         animate={{ opacity: isHovered ? 1 : 0 }}

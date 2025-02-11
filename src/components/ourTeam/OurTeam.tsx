@@ -6,10 +6,12 @@ const OurTeam = () => {
 
   return (
     <div
-      className="flex flex-col items-center text-6xl w-full h-[calc(100vh-144px)] space-y-6 bg-slate-100  pb-2 px-10 overflow-hidden"
+      className="flex flex-col items-center text-4xl w-full h-[calc(100vh-144px)] space-y-6 bg-slate-100  pb-2 px-10 overflow-hidden"
       id="team"
     >
-      <div className="mt-10 z-40">Nasz zespół</div>
+      <div className="mt-10 z-40 translate-y-[200%] text-slate-600">
+        Nasz zespół
+      </div>
       <div className="flex w-full h-full justify-center space-x-[20%]">
         <PhotoTextContainer
           name={team[0].name}

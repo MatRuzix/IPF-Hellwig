@@ -18,7 +18,7 @@ const RegistrationCards: React.FC<RegistrationCardsProps> = ({
       ref={ref}
       className={clsx(
         "absolute right-0 z-30 flex max-h-[calc(100vh-144px)] overflow-hidden transition-all ease-in-out duration-500 delay-200 rounded-b-lg rounded-r-none",
-        { "-top-32 opacity-0": !modalState },
+        { "-top-32 opacity-0 pointer-events-none": !modalState },
         { "top-[144px] opacity-100": modalState }
       )}
     >
