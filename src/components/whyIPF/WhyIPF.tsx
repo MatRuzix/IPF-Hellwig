@@ -34,11 +34,10 @@ const WhyIPF = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/3 h-full absolute -left-2 top-10 scale-[125%] overflow-hidden scale-x-[-1] opacity-85">
+        <div className="w-1/3 h-full absolute top-6 overflow-hidden scale-x-[-1] opacity-75">
           <Image src="/krystian_thumb.png" alt="krystian-thumb" fill />
         </div>
       </div>
-      <div className="absolute w-full h-full bg-gradient-to-b from-transparent from-[82%] to-[93%] to-slate-100 z-[11] pointer-events-none" />
     </div>
   );
 };

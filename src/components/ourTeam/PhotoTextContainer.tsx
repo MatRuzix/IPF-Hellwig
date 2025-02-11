@@ -19,20 +19,20 @@ const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
 
   return (
     <div
-      className="flex relative overflow-hidden h-[calc(100vh-244px)] w-[calc((100vh-244px)*0.88)]"
+      className="flex items-center scale-105 -translate-y-[16%] relative mt-10 overflow-hidden h-[calc(100vh-144px)] w-[calc((100vh-144px)*0.88)]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <Image src={imgSrc} alt="pers_phot" fill />
 
       <motion.div
-        className="w-full h-full bg-slate-200 opacity-45 absolute z-20"
-        animate={{ opacity: isHovered ? 0.6 : 0 }}
+        className="w-full h-full bg-slate-100 opacity-45 absolute z-20"
+        animate={{ opacity: isHovered ? 0.7 : 0 }}
         transition={{ duration: 0.5 }}
       />
       <div className="absolute w-full h-full bg-gradient-to-b from-transparent from-[82%] to-[93%] to-slate-100 z-[11] pointer-events-none" />
       <motion.div
-        className="absolute w-full h-full z-30 text-sm flex flex-col px-6 space-y-3 item-center justify-center"
+        className="absolute w-full h-full z-30 text-sm flex flex-col px-6 space-y-3 item-center justify-center font-extrabold"
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.5 }}
       >
