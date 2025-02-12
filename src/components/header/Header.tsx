@@ -9,6 +9,7 @@ import Image from "next/image";
 import RegistrationCards from "./Registration/RegistrationCards";
 import HeaderLink from "./HeaderLink";
 import SecondaryHeader from "./SecondaryHeader";
+import { Drawer } from "@mui/material";
 
 const Header = () => {
   const context = useContext(GeneralContext);
@@ -39,12 +40,14 @@ const Header = () => {
         <HeaderLink targetId="hero">
           <Image width={480} height={80} src="/logo-ipf.png" alt="logo" />
         </HeaderLink>
-        <ul className="flex w-full space-x-[6%] justify-center">
+        <ul className="flex w-full space-x-[6%] justify-center hamburger:hidden mobile:hidden mobile-xs:hidden">
           <HeaderLink targetId="treatment" text="Nasza oferta" />
           <HeaderLink targetId="why-us" text="Dlaczego IPF?" />
           <HeaderLink targetId="team" text="Nasz zespół" />
           <HeaderLink targetId="cooperations" text="Współprace" />
+          <Drawer className="bob" />
         </ul>
+
         <RegisterButton
           modalState={context!.isRegistrationOpen}
           modalStateSetter={context!.setIsRegistrationOpen}

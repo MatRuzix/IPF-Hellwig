@@ -11,6 +11,23 @@ body {
 .embla {
   overflow: hidden;
 }
+.embla2 {
+  position: relative;
+  display: flex;
+  width: 98%;
+  height: 100%;
+  --slide-height: 100%;
+  --slide-spacing: 1rem;
+  --slide-size: 55%;
+  flex-direction: column;
+}
+.embla3 {
+  display: flex;
+  max-height: 10rem;
+  --slide-height: 100%;
+  --slide-spacing: 1rem;
+  --slide-size: 55%;
+}
 
 .embla__container {
   display: flex;
@@ -58,7 +75,6 @@ body {
   padding-left: var(--slide-spacing);
 }
 .embla__slide__number {
-  border-radius: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;

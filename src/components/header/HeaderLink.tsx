@@ -18,7 +18,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   return (
     <div
       className={clsx(
-        "hover:scale-110 duration-300 transition-transform",
+        "hover:scale-110 duration-300 transition-transform hamburger:w-1/3 mobile:w-1/3 mobile-xs:w-1/2",
         className
       )}
     >

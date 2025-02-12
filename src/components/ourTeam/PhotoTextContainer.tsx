@@ -1,12 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+
+import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
+import type { EmblaOptionsType } from "embla-carousel";
+
+export type RatingData = {
+  rating: number;
+  name: string;
+  review: string;
+};
 
 export type PhotoTextContainerProps = {
   imgSrc: string;
   name: string;
   paragraph1: string;
   paragraph2?: string;
+  reviews: RatingData[];
 };
 
 const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
@@ -14,8 +26,11 @@ const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
   name,
   paragraph1,
   paragraph2,
+  reviews,
 }) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);
+
+  const OPTIONS: EmblaOptionsType = { loop: true };
 
   return (
     <div
@@ -36,9 +51,12 @@ const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.5 }}
       >
-        <p className="text-3xl mb-2">{name}</p>
-        <p>{paragraph1}</p>
-        <p>{paragraph2}</p>
+        <ReviewCarousel slides={reviews} options={OPTIONS} />
+        <div className="flex flex-col space-y-3 h-full overflow-scroll">
+          <p className="text-2xl mb-2">{name}</p>
+          <p>{paragraph1}</p>
+          <p>{paragraph2}</p>
+        </div>
       </motion.div>
     </div>
   );

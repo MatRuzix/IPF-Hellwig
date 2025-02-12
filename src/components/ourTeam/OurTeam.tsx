@@ -1,5 +1,6 @@
 import physiotherapists from "@/lib/data/physiotherapists";
 import PhotoTextContainer from "./PhotoTextContainer";
+import { krystianReviews, martaReviews } from "@/lib/data/reviews";
 
 const OurTeam = () => {
   const team = physiotherapists;
@@ -18,12 +19,14 @@ const OurTeam = () => {
           imgSrc={team[0].imgSrc}
           paragraph1={team[0].paragraph1}
           paragraph2={team[0].paragraph2}
+          reviews={krystianReviews}
         />
         <PhotoTextContainer
           name={team[1].name}
           imgSrc={team[1].imgSrc}
           paragraph1={team[1].paragraph1}
           paragraph2={team[1].paragraph2}
+          reviews={martaReviews}
         />
       </div>
     </div>

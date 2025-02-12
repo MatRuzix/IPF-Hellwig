@@ -34,7 +34,7 @@ const WhyIPF = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/3 h-full absolute top-6 overflow-hidden scale-x-[-1] opacity-75">
+        <div className="w-1/3 h-full absolute top-6 -left-16 overflow-hidden scale-x-[-1] opacity-75">
           <Image src="/krystian_thumb.png" alt="krystian-thumb" fill />
         </div>
       </div>

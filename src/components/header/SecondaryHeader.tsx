@@ -4,14 +4,14 @@ import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutli
 
 const SecondaryHeader = () => {
   return (
-    <div className="h-8 w-full bg-znanylekarz flex justify-around px-10 py-1 text-sm">
+    <div className="w-full bg-znanylekarz flex flex-wrap justify-around px-10 py-1 text-sm hamburger:text-xs">
       <div>
         <LocalPhoneIcon /> +48 453 696 345
       </div>
       <div>
         <LocationOnIcon /> ul. Mickiewicza 31B, 82-200 Malbork
       </div>
-      <div>
+      <div className="mobile:hidden mobile-xs:hidden">
         <DriveFileRenameOutlineIcon /> Rejestracja : Pon & Czw 8:00-16:00, Wt &
         Pt 7:00-15:00, Śr 12:00-18:00
       </div>

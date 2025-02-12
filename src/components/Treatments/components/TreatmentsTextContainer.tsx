@@ -20,7 +20,7 @@ const TreatmentsTextContainer: React.FC<TextContainerProps> = ({
   return (
     <div
       className={clsx(
-        "bobek flex h-full flex-col w-96 items-center bg-white px-6 py-4 rounded-lg text-base leading-7 shadow-lg",
+        "flex h-full flex-col w-96 items-center bg-white px-6 py-4 rounded-lg text-base leading-7 shadow-lg overflow-scroll",
         className
       )}
     >

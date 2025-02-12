@@ -14,7 +14,9 @@ export default {
         logoBlue: "rgb(125,157,254)",
       },
       screens: {
-        "3xl": "2000px",
+        mobile: { min: "415px", max: "640px" },
+        "mobile-xs": { raw: "(max-width: 414px)" },
+        hamburger: { min: "641px", max: "1150px" },
         "h-lg": { raw: "(min-height: 1000px)" },
       },
       spacing: {
