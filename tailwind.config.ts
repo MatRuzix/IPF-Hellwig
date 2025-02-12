@@ -14,6 +14,7 @@ export default {
         logoBlue: "rgb(125,157,254)",
       },
       screens: {
+        normalScreen: { raw: "(min-width: 1151)" },
         mobile: { min: "415px", max: "640px" },
         "mobile-xs": { raw: "(max-width: 414px)" },
         hamburger: { min: "641px", max: "1150px" },

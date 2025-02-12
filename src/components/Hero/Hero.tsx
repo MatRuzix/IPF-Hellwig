@@ -19,8 +19,8 @@ const Hero = () => {
       <div className="w-full h-full absolute -right-[25%]">
         <HeroCarousel />
       </div>
-      <div className="absolute z-20 text-6xl flex flex-col justify-center space-y-24 items-center text-white h-full w-1/2">
-        <div className="mx-5">
+      <div className="absolute z-20 text-6xl hamburger:text-5xl flex flex-col justify-center space-y-24 hamburger:space-y-12  items-center text-white h-full w-1/2">
+        <div className="mx-6">
           Gdzie profesjonalizm <br /> spotyka się <br /> z pasją do{" "}
           <span className="text-znanylekarz">ZDROWIA!</span>
         </div>

@@ -20,7 +20,7 @@ const WhyIPF = () => {
               text="Stawiamy na nowoczesne, skuteczne i sprawdzone techniki terapeutyczne, które przyspieszają regenerację i poprawiają jakość życia. Korzystamy z najnowszych osiągnięć fizjoterapii, łącząc wiedzę medyczną z innowacyjnymi rozwiązaniami, aby zapewnić Ci najlepsze efekty."
             />
 
-            <div className="flex justify-center space-x-6">
+            <div className="flex justify-center space-x-6 flex-wrap">
               <TextContainer
                 header="Profesjonalna opieka"
                 imgSrc="/letter-p.png"

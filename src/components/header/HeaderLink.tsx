@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+import { MouseEventHandler } from "react";
 
 import clsx from "clsx";
 
@@ -7,6 +8,7 @@ type HeaderLinkProps = {
   targetId: string;
   className?: string;
   children?: React.ReactNode;
+  onClick?: MouseEventHandler;
 };
 
 const HeaderLink: React.FC<HeaderLinkProps> = ({
@@ -14,6 +16,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   targetId,
   children,
   className,
+  onClick,
 }) => {
   return (
     <div
@@ -23,7 +26,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
       )}
     >
       <Link
-        className="cursor-pointer"
+        className="cursor-pointer relative"
         activeClass="active"
         to={targetId}
         spy={true}
@@ -31,6 +34,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
         offset={-144}
         duration={500}
       >
+        <div className="w-full h-full absolute" onClick={onClick}></div>
         {text}
         {children}
       </Link>
