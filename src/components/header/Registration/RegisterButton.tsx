@@ -12,7 +12,7 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({
 }) => {
   return (
     <Button
-      className=" bg-znanylekarz mobile-xs:py-2 mobile-xs:px-2 mobile-xs:w-1/4 mobile-xs:text-xs mobile:text-sm mobile:py-2 mobile:px-2 mobile:w-1/4 hamburger:py-2 hamburger:px-2 hamburger:w-1/4 py-4 px-10 hamburger:text-base text-xl font-extrabold hover:bg-znanylekarzHover"
+      className=" bg-znanylekarz mobile-xs:py-2 mobile-xs:px-2 mobile-xs:w-1/4 mobile-xs:text-xs mobile:text-xs mobile:py-2 mobile:px-2 mobile:w-1/4 hamburger:py-2 hamburger:px-2 hamburger:w-1/4 py-4 px-10 hamburger:text-base text-xl font-extrabold hover:bg-znanylekarzHover"
       custom={true}
       name="Umów się do nas "
       onClick={() => {

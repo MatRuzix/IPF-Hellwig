@@ -9,7 +9,10 @@ const HeroCarousel = () => {
   const [emblaRef] = useEmblaCarousel(options, [Autoplay({ delay: 5000 })]);
 
   return (
-    <div className="embla mx-auto w-full h-full border" ref={emblaRef}>
+    <div
+      className="embla mx-auto w-full h-full border normalScreen:visible hamburger:visible mobile:visible mobile-xs:hidden"
+      ref={emblaRef}
+    >
       <div className="embla__container h-full">
         <div className="embla__slide flex items_center justify-center">
           <Image
