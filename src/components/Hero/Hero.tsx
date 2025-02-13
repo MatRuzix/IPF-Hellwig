@@ -9,7 +9,7 @@ import HeaderLink from "../header/HeaderLink";
 const Hero = () => {
   return (
     <div
-      className="flex w-full normalScreen:h-[calc(100vh-144px)] hamburger:h-[calc(100vh-144px)] mobile:h-[calc(100vh-84px)] mobile-xs:h-[calc(100vh-84px)] relative overflow-hidden"
+      className="flex w-full h-[calc(100vh-144px)] mobile:h-[calc(100vh-84px)] mobile-xs:h-[calc(100vh-84px)] relative overflow-hidden"
       id="hero"
     >
       <div className="absolute w-full h-full bg-slate-800 opacity-40 z-[9]" />

@@ -18,6 +18,11 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   className,
   onClick,
 }) => {
+  const vw = Math.max(
+    document.documentElement.clientWidth || 0,
+    window.innerWidth || 0
+  );
+
   return (
     <div
       className={clsx(
@@ -31,7 +36,7 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
         to={targetId}
         spy={true}
         smooth={true}
-        offset={-144}
+        offset={vw > 640 ? -144 : -84}
         duration={500}
       >
         <div className="w-full h-full absolute" onClick={onClick}></div>
