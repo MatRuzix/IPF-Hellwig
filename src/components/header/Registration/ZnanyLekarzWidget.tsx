@@ -19,7 +19,7 @@ const ZnanyLekarzWidget: React.FC<ZnanyLekarzWidgetProps> = ({ variant }) => {
   }, []);
 
   return (
-    <div>
+    <div className="grow">
       <a
         id="zl-url"
         className="zl-url max-h-[calc(100vh-144px)]"
@@ -34,9 +34,7 @@ const ZnanyLekarzWidget: React.FC<ZnanyLekarzWidgetProps> = ({ variant }) => {
         data-zlw-opinion="false"
         data-zlw-hide-branding="true"
         data-zlw-saas-only="true"
-      >
-        Krystian Hellwig - ZnanyLekarz.pl
-      </a>
+      ></a>
     </div>
   );
 };

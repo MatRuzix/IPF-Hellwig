@@ -4,9 +4,9 @@ import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutli
 
 const SecondaryHeader = () => {
   return (
-    <div className="w-full bg-znanylekarz flex flex-wrap justify-around px-10 py-1 text-sm hamburger:text-xs max-h-7">
+    <div className="w-full bg-chillGreenrz flex flex-wrap justify-around px-10 py-1 text-sm hamburger:text-xs max-h-7">
       <div>
-        <LocalPhoneIcon /> +48 453 696 345
+        <LocalPhoneIcon /> <a href={`tel:+48 453 696 345`}>+48 453 696 345</a>
       </div>
       <div>
         <LocationOnIcon /> ul. Mickiewicza 31B, 82-200 Malbork

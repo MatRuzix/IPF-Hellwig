@@ -52,7 +52,7 @@ const Header = () => {
         />
         <HeaderDrawer />
       </div>
-      <RegistrationCards modalState={context!.isRegistrationOpen} />
+      {/* <RegistrationCards modalState={context!.isRegistrationOpen} /> */}
     </nav>
   );
 };

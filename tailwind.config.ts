@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        znanylekarz: "rgb(0,195,165)",
-        znanylekarzHover: "rgb(1,215,186)",
+        chillGreen: "rgb(0,188,160)",
+        chillGreenHover: "rgb(1,215,186)",
         logoBlue: "rgb(125,157,254)",
       },
       screens: {

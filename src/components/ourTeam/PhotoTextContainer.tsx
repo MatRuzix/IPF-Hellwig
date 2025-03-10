@@ -31,10 +31,11 @@ const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const OPTIONS: EmblaOptionsType = { loop: true };
+  console.log(window.innerHeight);
 
   return (
     <div
-      className="flex items-center scale-105 -translate-y-[16%] relative mt-10 overflow-hidden h-[calc(100vh-144px)] w-[calc((100vh-144px)*0.88)]"
+      className="flex items-center relative overflow-hidden h-[calc(100vh-144px)] w-[calc((100vh-144px)*0.88)]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -52,10 +53,12 @@ const PhotoTextContainer: React.FC<PhotoTextContainerProps> = ({
         transition={{ duration: 0.5 }}
       >
         <ReviewCarousel slides={reviews} options={OPTIONS} />
-        <div className="flex flex-col space-y-3 h-full overflow-scroll">
+        <div className="flex flex-col space-y-3 h-full overflow-auto pt-5">
           <p className="text-2xl mb-2">{name}</p>
-          <p>{paragraph1}</p>
-          <p>{paragraph2}</p>
+          <div className="flex h-1/2 flex-col justify-around">
+            <p>{paragraph1}</p>
+            <p>{paragraph2}</p>
+          </div>
         </div>
       </motion.div>
     </div>

@@ -10,7 +10,7 @@ const HeroCarousel = () => {
 
   return (
     <div
-      className="embla mx-auto w-full h-full border normalScreen:visible hamburger:visible mobile:visible mobile-xs:hidden"
+      className="embla mx-auto w-full h-full border mobile-xs:scale-y-75"
       ref={emblaRef}
     >
       <div className="embla__container h-full">

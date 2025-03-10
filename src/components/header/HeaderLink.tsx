@@ -1,3 +1,5 @@
+"use client";
+
 import { Link } from "react-scroll";
 import { MouseEventHandler } from "react";
 
