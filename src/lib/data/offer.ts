@@ -16,6 +16,13 @@ const offer: TextContainerProps[] = [
     imgSrc: "/osteopathy.png",
   },
   {
+    header: "Osteopatia pediatryczna",
+    text: "Osteopatia pediatryczna to bezpieczna i skuteczna forma wsparcia zdrowia dzieci, już od pierwszych dni życia. Pomaga w kolkach, asymetrii, napięciach i innych wyzwaniach, przywracając naturalną równowagę ciała. Dzięki holistycznemu podejściu wspiera układ nerwowy i poprawia komfort malucha.",
+    secondaryText:
+      "Kolki  | Refluks | Problemy z wypróżnianiem  | Zapalenie ucha środkowego  | Zaburzenia snu | Częsty płacz | Asymetria ułożeniowa",
+    imgSrc: "/baby.png",
+  },
+  {
     header: "Chiropraktyka",
     text: "Chiropraktyka to naturalna metoda leczenia, która przywraca prawidłową funkcję kręgosłupa i układu nerwowego. Dzięki precyzyjnym technikom manualnym pomaga redukować ból, napięcia i poprawia mobilność.",
     secondaryText:
