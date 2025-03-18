@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute z-20 flex flex-col justify-center space-y-24 hamburger:space-y-12  items-center text-white h-full w-1/2">
         <div className="mx-6 normalScreen:text-6xl hamburger:text-5xl mobile:text-2xl mobile-xs:text-xl">
           Gdzie profesjonalizm <br /> spotyka się <br /> z pasją do{" "}
-          <span className="text-chillGreenrz">ZDROWIA!</span>
+          <span className="text-chillGreen">ZDROWIA!</span>
         </div>
         <HeaderLink targetId="why-us" className="w-1/3">
           <Button name="DOWIEDZ SIĘ WIĘCEJ" variant="transparent" />

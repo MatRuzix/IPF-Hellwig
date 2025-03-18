@@ -19,7 +19,7 @@ const Review: React.FC<ReviewProps> = ({ rating, name, review, className }) => {
       )}
     >
       <Rating className="mb-2" value={rating} readOnly />
-      <p className="mb-2 text-sm text-chillGreenrz font-bold">{name}</p>
+      <p className="mb-2 text-sm text-chillGreen font-bold">{name}</p>
       <p className="text-[0.5rem]">{review}</p>
     </div>
   );

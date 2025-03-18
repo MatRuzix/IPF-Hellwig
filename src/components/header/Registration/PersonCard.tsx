@@ -22,7 +22,7 @@ const PersonCard: React.FC<PersonCardProps> = ({ name, imageSrc, href }) => {
       <div className="align-middle flex items-center">{name}</div>
       <Button
         custom={true}
-        className="bg-chillGreenrz w-36 h-12"
+        className="bg-chillGreen w-36 h-12"
         icon={<ZnanyLekarz />}
         onClick={() => {
           window.open(href, "_blank");

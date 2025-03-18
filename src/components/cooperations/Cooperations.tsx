@@ -3,7 +3,7 @@ import CoopLink from "./CoopLink";
 const Cooperations = () => {
   return (
     <div
-      className="flex flex-col items-center text-6xl mobile-xs:text-3xl w-full h-[calc(100vh-144px)] bg-gradient-to-b from-slate-100 to-chillGreenrzHover pb-2 px-10 overflow-hidden space-y-20"
+      className="flex flex-col items-center text-6xl mobile-xs:text-3xl w-full h-[calc(100vh-144px)] bg-gradient-to-b from-slate-100 to-chillGreenHover pb-2 px-10 overflow-hidden space-y-20"
       id="cooperations"
     >
       <div className="mt-10 z-40">Nasze współprace</div>

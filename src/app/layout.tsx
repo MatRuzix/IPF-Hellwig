@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google";
 
 import Header from "@/components/header/Header";
 import AppProvider from "@/lib/providers/AppProvider";
-import RegistrationModal from "@/components/header/Registration/RegistrationModal";
 
 const poppins = Poppins({ weight: "500", subsets: ["latin"] });
 
@@ -22,7 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} antialiased`}>
         <AppProvider>
-          <RegistrationModal />
           <Header />
           {children}
         </AppProvider>
