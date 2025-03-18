@@ -26,14 +26,14 @@ const OurTeam = () => {
               imgSrc={team[0].imgSrc}
               paragraph1={team[0].paragraph1}
               paragraph2={team[0].paragraph2}
-              reviews={krystianReviews}
+              reviews={team[0].reviews}
             />
             <PhotoTextContainer
               name={team[1].name}
               imgSrc={team[1].imgSrc}
               paragraph1={team[1].paragraph1}
               paragraph2={team[1].paragraph2}
-              reviews={martaReviews}
+              reviews={team[1].reviews}
             />
           </div>
         )}
