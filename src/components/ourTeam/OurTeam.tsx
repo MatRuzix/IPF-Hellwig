@@ -1,3 +1,5 @@
+"use client";
+
 import physiotherapists from "@/lib/data/physiotherapists";
 import PhotoTextContainer from "./PhotoTextContainer";
 import MobileTextContainer from "./MobileTextContainer";
