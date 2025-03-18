@@ -30,7 +30,7 @@ const MobileTextContainer: React.FC<PhotoTextContainerProps> = ({
 
   return (
     <div className="flex flex-col items-center relative w-full h-1/2 mt-20 ">
-      <div className="relative w-[60vw] h-[calc(96vw)]">
+      <div className="relative w-[75vw] h-[calc(96vw)]">
         <Image src={imgSrc} alt="pers_phot" fill />
         <div className="absolute w-full h-full scale-y-105 bg-gradient-to-b from-transparent from-[75%] to-[82%] to-slate-100 z-[11] pointer-events-none" />
       </div>
