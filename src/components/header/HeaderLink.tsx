@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import { Link } from "react-scroll";
 import { MouseEventHandler } from "react";
 
@@ -20,10 +22,16 @@ const HeaderLink: React.FC<HeaderLinkProps> = ({
   className,
   onClick,
 }) => {
-  const vw = Math.max(
-    document.documentElement.clientWidth || 0,
-    window.innerWidth || 0
-  );
+  const [vw, setVw] = useState<number>(0);
+
+  useEffect(() => {
+    setVw(
+      Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
+    );
+  }, []);
 
   return (
     <div

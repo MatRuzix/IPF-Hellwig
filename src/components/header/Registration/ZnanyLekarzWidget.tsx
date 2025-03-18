@@ -1,4 +1,5 @@
 "use client";
+
 type ZnanyLekarzWidgetProps = {
   variant: "krystian" | "marta";
 };
