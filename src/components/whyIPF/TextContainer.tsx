@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type TextContainerProps = {
   text: string;
@@ -16,11 +16,16 @@ const TextContainer: React.FC<TextContainerProps> = ({
   imgSrc,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const vw = Math.max(
-    document.documentElement.clientWidth || 0,
-    window.innerWidth || 0
-  );
-  console.log(vw <= 640);
+  const [vw, setVw] = useState<number>(0);
+
+  useEffect(() => {
+    setVw(
+      Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
+    );
+  }, []);
   return (
     <motion.div
       className="flex flex-col w-96 hamburger:w-80 mobile:w-32 mobile-xs:w-32 items-center bg-white px-6 py-4 h-48 mobile:h-auto mobile-xs:h-auto rounded-lg text-base leading-7 shadow-lg"

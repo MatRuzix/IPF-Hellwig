@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 import physiotherapists from "@/lib/data/physiotherapists";
 import PhotoTextContainer from "./PhotoTextContainer";
 import MobileTextContainer from "./MobileTextContainer";
@@ -7,11 +9,16 @@ import { krystianReviews, martaReviews } from "@/lib/data/reviews";
 
 const OurTeam = () => {
   const team = physiotherapists;
-  const vw = Math.max(
-    document.documentElement.clientWidth || 0,
-    window.innerWidth || 0
-  );
+  const [vw, setVw] = useState<number>(0);
 
+  useEffect(() => {
+    setVw(
+      Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
+    );
+  }, []);
   return (
     <div
       className="flex flex-col items-center text-4xl pb-3 mobile-xs:text-2xl w-full h-[calc(100vh-144px)] mobile-xs:h-auto mobile:h-auto mobile-xs:space-y-3 bg-slate-100 px-10 mobile-xs:px-5 overflow-hidden mobile-xs:overflow-visible"

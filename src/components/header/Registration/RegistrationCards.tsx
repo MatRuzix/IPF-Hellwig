@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import type { Ref } from "react";
 
 import clsx from "clsx";
@@ -15,10 +16,16 @@ const RegistrationCards: React.FC<RegistrationCardsProps> = ({
   modalState,
   ref,
 }) => {
-  const vw = Math.max(
-    document.documentElement.clientWidth || 0,
-    window.innerWidth || 0
-  );
+  const [vw, setVw] = useState<number>(0);
+
+  useEffect(() => {
+    setVw(
+      Math.max(
+        document.documentElement.clientWidth || 0,
+        window.innerWidth || 0
+      )
+    );
+  }, []);
 
   return (
     <div
