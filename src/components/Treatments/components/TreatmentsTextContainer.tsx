@@ -26,7 +26,7 @@ const TreatmentsTextContainer: React.FC<TextContainerProps> = ({
     >
       <div className="overflow-auto">
         <div className="flex flex-col items-center justify-center space-y-6">
-          <Image src={imgSrc} alt="text-icon" width={50} height={50} />
+          <Image src={imgSrc} alt="text-icon" width={50} height={50} priority />
           <p className="text-xl mobile:text-base mobile-xs:text-base mb-3 text-chillGreen font-bold">
             {header}
           </p>
