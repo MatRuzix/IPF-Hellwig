@@ -3,6 +3,7 @@
 import HeroLogo from "./HeroLogo";
 import HeroCarousel from "./HeroCarousel";
 import Button from "../button/Button";
+import { motion } from "framer-motion";
 
 import HeaderLink from "../header/HeaderLink";
 
@@ -19,7 +20,11 @@ const Hero = () => {
       <div className="w-full h-full absolute -right-[25%] mobile-xs:right-0">
         <HeroCarousel />
       </div>
-      <div className="absolute z-20 flex flex-col justify-center space-y-24 hamburger:space-y-12  items-center text-white h-full w-1/2">
+      <motion.div
+        className="opacity-0 absolute z-20 flex flex-col justify-center space-y-24 hamburger:space-y-12  items-center text-white h-full w-1/2"
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      >
         <div className="mx-6 normalScreen:text-6xl hamburger:text-5xl mobile:text-2xl mobile-xs:text-xl">
           Gdzie profesjonalizm <br /> spotyka się <br /> z pasją do{" "}
           <span className="text-chillGreen">ZDROWIA!</span>
@@ -27,7 +32,7 @@ const Hero = () => {
         <HeaderLink targetId="why-us" className="w-1/3">
           <Button name="DOWIEDZ SIĘ WIĘCEJ" variant="transparent" />
         </HeaderLink>
-      </div>
+      </motion.div>
     </div>
   );
 };
