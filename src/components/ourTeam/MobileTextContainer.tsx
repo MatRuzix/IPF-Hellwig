@@ -3,7 +3,6 @@
 import Image from "next/image";
 
 import ReviewCarousel from "./reviewCarousel/ReviewCarousel";
-import type { EmblaOptionsType } from "embla-carousel";
 
 export type RatingData = {
   rating: number;
@@ -26,7 +25,6 @@ const MobileTextContainer: React.FC<PhotoTextContainerProps> = ({
   paragraph2,
   reviews,
 }) => {
-  const OPTIONS: EmblaOptionsType = { loop: true };
 
   return (
     <div className="flex flex-col items-center relative w-full h-1/2 mt-20 ">
@@ -38,7 +36,7 @@ const MobileTextContainer: React.FC<PhotoTextContainerProps> = ({
       <div className="flex flex-col space-y-4 h-full w-full overflow-hidden">
         <p className="text-xl mt-2 mb-2">{name}</p>
         <div className="w-[140%]">
-          <ReviewCarousel slides={reviews} options={OPTIONS} />
+          <ReviewCarousel reviews={reviews} />
         </div>
 
         <p className="text-sm">{paragraph1}</p>
