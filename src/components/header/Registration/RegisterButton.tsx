@@ -1,27 +1,16 @@
 "use client";
 
-import { Dispatch } from "react";
-import Button from "../../button/Button";
+import clsx from "clsx";
+import type { Dispatch, SetStateAction } from "react";
 
 type RegisterButtonProps = {
-  modalState: boolean;
-  modalStateSetter: Dispatch<boolean>;
+  isRegistrationOpen: boolean;
+  setIsRegistrationOpen: Dispatch<SetStateAction<boolean>>;
+  className?: string;
 };
 
-const RegisterButton: React.FC<RegisterButtonProps> = ({
-  modalState,
-  modalStateSetter,
-}) => {
+export default function RegisterButton({ isRegistrationOpen, setIsRegistrationOpen, className }: RegisterButtonProps) {
   return (
-    <Button
-      className=" bg-chillGreen mobile-xs:py-2 mobile-xs:px-2 mobile-xs:w-1/4 mobile-xs:text-xs mobile:text-xs mobile:py-2 mobile:px-2 mobile:w-1/4 hamburger:py-2 hamburger:px-2 hamburger:w-1/4 py-4 px-10 hamburger:text-base text-xl font-extrabold hover:bg-chillGreenHover"
-      custom={true}
-      name="Umów się do nas "
-      onClick={() => {
-        modalStateSetter(!modalState);
-      }}
-    />
+    <button type="button" aria-haspopup="dialog" aria-expanded={isRegistrationOpen} onClick={() => setIsRegistrationOpen((previous) => !previous)} className={clsx("button-primary whitespace-nowrap", className)}>Umów wizytę</button>
   );
-};
-
-export default RegisterButton;
+}

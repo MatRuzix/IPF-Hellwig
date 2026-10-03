@@ -1,22 +1,11 @@
 import Image from "next/image";
 
-type CoopLinkProps = {
-  href: string;
-  imgSrc: string;
-  height: number;
-  width: number;
-};
+type CoopLinkProps = { href: string; imgSrc: string; height: number; width: number; name: string };
 
-const CoopLink: React.FC<CoopLinkProps> = ({ href, imgSrc, height, width }) => {
+export default function CoopLink({ href, imgSrc, height, width, name }: CoopLinkProps) {
   return (
-    <a
-      target="_blank"
-      href={href}
-      className="cursor-pointer hover:scale-[117%] hover:translate-y-[5%] transition-all duration-200 ease-in-out"
-    >
-      <Image src={imgSrc} alt="coopImg" height={height} width={width} />
+    <a target="_blank" rel="noopener noreferrer" href={href} aria-label={name} className="mx-auto flex min-h-32 w-full max-w-72 items-center justify-center rounded-xl p-4 transition-colors hover:bg-slate-50">
+      <Image src={imgSrc} alt={name} height={height} width={width} sizes="(max-width: 639px) 130px, 240px" className="h-auto max-h-32 w-auto max-w-full object-contain" />
     </a>
   );
-};
-
-export default CoopLink;
+}

@@ -9,12 +9,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        chillGreen: "rgb(0,188,160)",
-        chillGreenHover: "rgb(1,215,186)",
+        znanylekarz: "rgb(0,195,165)",
+        znanylekarzHover: "rgb(1,215,186)",
         logoBlue: "rgb(125,157,254)",
       },
       screens: {
-        normalScreen: { min: "1151px" },
+        normalScreen: { raw: "(min-width: 1151px)" },
         mobile: { min: "415px", max: "640px" },
         "mobile-xs": { raw: "(max-width: 414px)" },
         hamburger: { min: "641px", max: "1150px" },

@@ -1,50 +1,19 @@
 import Image from "next/image";
-
 import clsx from "clsx";
 
-export type TextContainerProps = {
-  text: string;
-  secondaryText?: string;
-  header?: string;
-  imgSrc?: string;
-  className?: string;
-};
+export type TextContainerProps = { header: string; text: string; secondaryText?: string; imgSrc: string; className?: string };
 
-const TreatmentsTextContainer: React.FC<TextContainerProps> = ({
-  text,
-  header,
-  imgSrc = "/",
-  className,
-  secondaryText,
-}) => {
+export default function TreatmentsTextContainer({ header, text, secondaryText, imgSrc, className }: TextContainerProps) {
   return (
-    <div
-      className={clsx(
-        "flex h-full flex-col w-96 items-center bg-white px-6 py-4 rounded-lg text-base leading-7 shadow-lg overflow-auto",
-        className
-      )}
-    >
-      <div className="overflow-auto">
-        <div className="flex flex-col items-center justify-center space-y-6">
-          <Image src={imgSrc} alt="text-icon" width={50} height={50} priority />
-          <p className="text-xl mobile:text-base mobile-xs:text-base mb-3 text-chillGreen font-bold">
-            {header}
-          </p>
-          <p className="text-sm mobile:text-xs mobile-xs:text-xs">{text}</p>
-          <div>
-            {secondaryText && (
-              <p className="text-sm mobile:text-xs mobile-xs:text-xs font-bold text-center">
-                Wskazania:
-              </p>
-            )}
-            <p className="text-sm mobile:text-xs mobile-xs:text-xs font-bold text-center">
-              {secondaryText}
-            </p>
-          </div>
-        </div>
+    <article className={clsx("min-w-0 rounded-xl bg-white p-6 sm:p-8", className)}>
+      <div className="mb-5 flex items-center gap-4">
+        <Image src={imgSrc} alt="" width={44} height={44} className="h-11 w-11 shrink-0 object-contain" />
+        <h3 className="text-xl font-semibold leading-7 text-teal-700 [@media(max-width:359px)]:text-lg sm:text-2xl">{header}</h3>
       </div>
-    </div>
+      <p className="text-base leading-7 text-slate-600">{text}</p>
+      {secondaryText && <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-slate-200 pt-5 text-sm leading-6 text-slate-600">
+        {secondaryText.split("|").map((item) => <li key={item.trim()} className="flex items-start gap-2"><span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-teal-600" />{item.trim()}</li>)}
+      </ul>}
+    </article>
   );
-};
-
-export default TreatmentsTextContainer;
+}

@@ -1,22 +1,16 @@
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import { site } from "@/lib/site";
 
-const SecondaryHeader = () => {
+export default function SecondaryHeader() {
   return (
-    <div className="w-full bg-chillGreen flex flex-wrap justify-around px-10 py-1 text-sm hamburger:text-xs max-h-7">
-      <div>
-        <LocalPhoneIcon /> <a href={`tel:+48 453 696 345`}>+48 453 696 345</a>
-      </div>
-      <div>
-        <LocationOnIcon /> ul. Mickiewicza 31B, 82-200 Malbork
-      </div>
-      <div className="mobile:hidden mobile-xs:hidden">
-        <DriveFileRenameOutlineIcon /> Rejestracja : Pon & Czw 8:00-16:00, Wt &
-        Pt 7:00-15:00, Śr 12:00-18:00
+    <div className="bg-slate-800 text-white">
+      <div className="site-container flex h-8 items-center justify-between gap-3 text-xs">
+        <a href={site.phoneHref} className="inline-flex items-center gap-2 hover:text-teal-300"><LocalPhoneOutlinedIcon sx={{ fontSize: 15 }} />{site.phone}</a>
+        <a href="#contact" className="inline-flex items-center gap-1 hover:text-teal-300">
+          <LocationOnOutlinedIcon sx={{ fontSize: 15 }} /><span className="sm:hidden">Malbork</span><span className="hidden sm:inline">{site.address}</span>
+        </a>
       </div>
     </div>
   );
-};
-
-export default SecondaryHeader;
+}

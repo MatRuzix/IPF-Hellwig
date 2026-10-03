@@ -1,28 +1,12 @@
-import React from "react";
-import clsx from "clsx";
-
 import Rating from "@mui/material/Rating";
+import type { RatingData } from "../PhotoTextContainer";
 
-type ReviewProps = {
-  rating: number;
-  name: string;
-  review: string;
-  className?: string;
-};
-
-const Review: React.FC<ReviewProps> = ({ rating, name, review, className }) => {
+export default function Review({ rating, name, review }: RatingData) {
   return (
-    <div
-      className={clsx(
-        "flex flex-col items-center py-3 bg-white/70 px-3 rounded-lg leading-4 text-base shadow-lg opacity-80 max-h-40 overflow-hidden",
-        className
-      )}
-    >
-      <Rating className="mb-2" value={rating} readOnly />
-      <p className="mb-2 text-sm text-chillGreen font-bold">{name}</p>
-      <p className="text-[0.5rem]">{review}</p>
-    </div>
+    <figure className="rounded-xl bg-slate-50 p-5">
+      <Rating value={rating} readOnly size="small" getLabelText={(value) => "Ocena: " + value + " na 5"} />
+      <blockquote className="mt-3 text-sm leading-6 text-slate-600">{review}</blockquote>
+      <figcaption className="mt-3 text-sm font-semibold text-teal-700">{name}</figcaption>
+    </figure>
   );
-};
-
-export default Review;
+}

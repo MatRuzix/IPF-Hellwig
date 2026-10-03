@@ -1,47 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { Ref } from "react";
+import Dialog from "@mui/material/Dialog";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import BookingProfileCard from "./BookingProfileCard";
 
-import clsx from "clsx";
+type RegistrationCardsProps = { isRegistrationOpen: boolean; onClose: () => void };
 
-import ZnanyLekarzWidget from "./ZnanyLekarzWidget";
-
-type RegistrationCardsProps = {
-  modalState: boolean;
-  ref?: Ref<HTMLDivElement>;
-};
-
-const RegistrationCards: React.FC<RegistrationCardsProps> = ({
-  modalState,
-  ref,
-}) => {
-  const [vw, setVw] = useState<number>(0);
-
-  useEffect(() => {
-    setVw(
-      Math.max(
-        document.documentElement.clientWidth || 0,
-        window.innerWidth || 0
-      )
-    );
-  }, []);
-
+export default function RegistrationCards({ isRegistrationOpen, onClose }: RegistrationCardsProps) {
   return (
-    <div
-      ref={ref}
-      className={clsx(
-        "absolute right-0 z-30 flex max-h-[calc(100vh-144px)] overflow-auto transition-all ease-in-out duration-500 delay-200 rounded-b-lg rounded-r-none",
-        { "-top-32 opacity-0 pointer-events-none": !modalState },
-        { "top-[144px] opacity-100": modalState && vw >= 600 },
-        { "top-[84px] opacity-100 grow": modalState && vw < 600 },
-        { "flex-col": vw < 600 }
-      )}
-    >
-      <ZnanyLekarzWidget variant="krystian" />
-      <ZnanyLekarzWidget variant="marta" />
-    </div>
+    <Dialog open={isRegistrationOpen} onClose={onClose} aria-labelledby="registration-title" maxWidth="md" fullWidth PaperProps={{ sx: { borderRadius: 3, margin: 2, width: "calc(100% - 32px)" } }}>
+      <div className="flex items-center justify-between gap-4 border-b border-slate-200 px-5 py-4 sm:px-8">
+        <h2 id="registration-title" className="text-xl font-semibold text-slate-800 sm:text-2xl">Umów wizytę</h2>
+        <button type="button" aria-label="Zamknij rejestrację" onClick={onClose} className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg hover:bg-slate-100"><CloseRoundedIcon /></button>
+      </div>
+      <div className="overflow-y-auto p-5 sm:p-8">
+        <p className="mb-6 text-sm leading-6 text-slate-600">Wybierz fizjoterapeutę i sprawdź dostępne terminy w serwisie ZnanyLekarz.</p>
+        <div className="grid min-w-0 gap-6 md:grid-cols-2">
+          <BookingProfileCard variant="krystian" />
+          <BookingProfileCard variant="marta" />
+        </div>
+      </div>
+    </Dialog>
   );
-};
-
-export default RegistrationCards;
+}

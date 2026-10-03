@@ -1,22 +1,13 @@
-import { EmblaOptionsType } from "embla-carousel";
-import type { TextContainerProps } from "./TreatmentsTextContainer";
-import TreatmentCarousel from "./TreatmentCarousel";
 import offer from "@/lib/data/offer";
+import TreatmentsTextContainer from "./TreatmentsTextContainer";
 
-const Treatments = () => {
-  const OPTIONS: EmblaOptionsType = { loop: true };
-  const SLIDES: TextContainerProps[] = offer;
+export default function Treatments() {
   return (
-    <div
-      className="flex flex-col justify-around items-center  normalScreen:text-6xl hamburger:text-5xl mobile:text-4xl mobile-xs:text-3xl w-full h-[calc(100vh-144px)] mobile:h-[calc(100vh-84px)] mobile-xs:h-[calc(100vh-84px)] bg-slate-800 pb-[4%]"
-      id="treatment"
-    >
-      <div className="text-chillGreen my-[4%]">Nasza oferta</div>
-      <div className="flex w-full normalScreen:h-full hamburger:h-full mobile:h-[80%] mobile-xs:h-[60%] justify-center items-center">
-        <TreatmentCarousel slides={SLIDES} options={OPTIONS} />
+    <section id="treatments" className="bg-slate-800 pb-14 pt-6 sm:pb-20 sm:pt-8">
+      <div className="site-container">
+        <h2 className="section-heading mb-8 text-white sm:mb-10">Jak możemy Ci pomóc?</h2>
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2">{offer.map((treatment, index) => <TreatmentsTextContainer key={treatment.header} {...treatment} className={offer.length % 2 !== 0 && index === offer.length - 1 ? "md:col-span-2" : undefined} />)}</div>
       </div>
-    </div>
+    </section>
   );
-};
-
-export default Treatments;
+}

@@ -1,13 +1,11 @@
 "use client";
 
-import { createContext, Dispatch } from "react";
+import { createContext, type Dispatch, type SetStateAction } from "react";
 
 type GeneralContextType = {
   headerHeight: number;
   isRegistrationOpen: boolean;
-  setIsRegistrationOpen: Dispatch<boolean>;
+  setIsRegistrationOpen: Dispatch<SetStateAction<boolean>>;
 };
-
 const GeneralContext = createContext<GeneralContextType | undefined>(undefined);
-
 export default GeneralContext;

@@ -2,7 +2,7 @@ import type { TextContainerProps } from "@/components/Treatments/components/Trea
 
 const offer: TextContainerProps[] = [
   {
-    header: "Fizjoterapia Ogólna",
+    header: "Fizjoterapia ogólna",
     text: "Fizjoterapia to skuteczna metoda leczenia i profilaktyki, która pomaga odzyskać sprawność i zmniejszyć dolegliwości bólowe. Dzięki indywidualnie dobranym technikom manualnym i ćwiczeniom wspiera regenerację organizmu oraz poprawia jakość życia.",
     secondaryText:
       "Rehabilitacja pourazowa i pooperacyjna | Ograniczona ruchomość stawów | Wady postawy",
@@ -16,25 +16,39 @@ const offer: TextContainerProps[] = [
     imgSrc: "/osteopathy.png",
   },
   {
-    header: "Osteopatia pediatryczna",
-    text: "Osteopatia pediatryczna to bezpieczna i skuteczna forma wsparcia zdrowia dzieci, już od pierwszych dni życia. Pomaga w kolkach, asymetrii, napięciach i innych wyzwaniach, przywracając naturalną równowagę ciała. Dzięki holistycznemu podejściu wspiera układ nerwowy i poprawia komfort malucha.",
-    secondaryText:
-      "Kolki  | Refluks | Problemy z wypróżnianiem  | Zapalenie ucha środkowego  | Zaburzenia snu | Częsty płacz | Asymetria ułożeniowa",
-    imgSrc: "/baby.png",
-  },
-  {
     header: "Chiropraktyka",
     text: "Chiropraktyka to naturalna metoda leczenia, która przywraca prawidłową funkcję kręgosłupa i układu nerwowego. Dzięki precyzyjnym technikom manualnym pomaga redukować ból, napięcia i poprawia mobilność.",
     secondaryText:
-      "Rwa kulszowa | Ograniczona ruchomość stawów | Dyskopatie | Bóle Szyi | Zawroty głowy | Parestezje (drętwienie) rąk lub nóg",
+      "Rwa kulszowa | Ograniczona ruchomość stawów | Dyskopatie | Bóle szyi | Zawroty głowy | Parestezje (drętwienie) rąk lub nóg",
     imgSrc: "/chiro.png",
   },
   {
     header: "Masaż",
     text: "Masaż to doskonały sposób na relaks, redukcję stresu i poprawę samopoczucia. Dzięki profesjonalnym technikom pomaga rozluźnić napięte mięśnie, złagodzić ból i przywrócić harmonię ciała.",
     secondaryText:
-      "Bóle i napięcie mięśniowe | Obrzęki limfatczne | Stres | Regeneracja po treningach | Zrosty i blizny pooperacyjne",
+      "Bóle i napięcie mięśniowe | Obrzęki limfatyczne | Stres | Regeneracja po treningach | Zrosty i blizny pooperacyjne",
     imgSrc: "/masage.png",
+  },
+  {
+    header: "Osteopatia stomatologiczna",
+    text: "Osteopatia stomatologiczna skupia się na pracy manualnej w obrębie żuchwy, twarzy i szyi. Jej celem jest zmniejszenie napięć oraz wsparcie komfortowego ruchu i funkcji stawów skroniowo-żuchwowych.",
+    secondaryText:
+      "Napięcia w obrębie żuchwy | Dyskomfort przy otwieraniu ust | Wsparcie terapii stomatologicznej",
+    imgSrc: "/dental-osteopathy.svg",
+  },
+  {
+    header: "Zabieg podologiczny",
+    text: "Zabieg podologiczny to specjalistyczna pielęgnacja skóry i paznokci stóp, dopasowana do ich potrzeb. Obejmuje ocenę kondycji stóp, opracowanie zrogowaceń i paznokci oraz wskazówki dotyczące codziennej pielęgnacji.",
+    secondaryText:
+      "Pielęgnacja skóry stóp | Opracowanie zrogowaceń | Pielęgnacja paznokci",
+    imgSrc: "/podology.svg",
+  },
+  {
+    header: "Manicure i pedicure",
+    text: "Manicure i pedicure to pielęgnacja dłoni, stóp oraz paznokci, która podkreśla ich naturalny, zadbany wygląd. Zabiegi obejmują opracowanie kształtu paznokci i skórek oraz pielęgnację dobraną do Twoich potrzeb.",
+    secondaryText:
+      "Pielęgnacja dłoni i stóp | Opracowanie paznokci i skórek | Zadbany wygląd",
+    imgSrc: "/manicure-pedicure.svg",
   },
 ];
 

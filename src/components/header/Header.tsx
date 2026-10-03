@@ -1,60 +1,40 @@
 "use client";
 
 import { useContext } from "react";
-import { useEffect, useRef } from "react";
-
-import GeneralContext from "@/lib/contexts/generalContext/GeneralContext";
-import RegisterButton from "./Registration/RegisterButton";
 import Image from "next/image";
-import RegistrationCards from "./Registration/RegistrationCards";
+import GeneralContext from "@/lib/contexts/generalContext/GeneralContext";
+import { navigation } from "@/lib/site";
 import HeaderLink from "./HeaderLink";
-import SecondaryHeader from "./SecondaryHeader";
 import HeaderDrawer from "./HeaderDrawer";
+import SecondaryHeader from "./SecondaryHeader";
+import RegisterButton from "./Registration/RegisterButton";
+import RegistrationCards from "./Registration/RegistrationCards";
+import DirectionsButton from "./DirectionsButton";
 
-const Header = () => {
+export default function Header() {
   const context = useContext(GeneralContext);
-  const isOpen = context?.isRegistrationOpen;
-  const headerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    // eslint-disable-next-line
-    const handler = (e: any) => {
-      if (!headerRef.current?.contains(e.target)) {
-        context!.setIsRegistrationOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => {
-      document.removeEventListener("mousedown", handler);
-    };
-  }, [isOpen, context]);
-
+  if (!context) return null;
   return (
-    <nav
-      className="flex flex-col w-full sticky top-0 z-50 will-change-transform"
-      ref={headerRef}
-      id="header"
-    >
+    <header className="sticky top-0 z-40 border-b border-slate-200 bg-slate-100">
       <SecondaryHeader />
-      <div className="flex w-full h-28 mobile:h-14 mobile-xs:h-14 px-12 z-50 py-2 justify-between items-center bg-slate-100 relative mobile:px-4 mobile-xs:px-2">
-        <HeaderLink targetId="hero">
-          <Image width={480} height={80} src="/logo-ipf.png" alt="logo" />
+      <div className="site-container flex flex-wrap items-center justify-between gap-x-2 gap-y-1 py-2 sm:h-[72px] sm:flex-nowrap sm:py-0 md:h-[88px] lg:gap-4">
+        <HeaderLink targetId="hero" className="flex shrink-0 items-center">
+          <Image src="/logo-ipf.png" alt="IPF Hellwig" width={480} height={73} priority sizes="(max-width: 639px) 150px, 240px" className="h-auto w-[clamp(110px,34vw,160px)] sm:w-52 lg:w-60" />
         </HeaderLink>
-        <ul className="flex w-full space-x-[6%] justify-center hamburger:hidden mobile:hidden mobile-xs:hidden">
-          <HeaderLink targetId="treatment" text="Nasza oferta" />
-          <HeaderLink targetId="why-us" text="Dlaczego IPF?" />
-          <HeaderLink targetId="team" text="Nasz zespół" />
-          <HeaderLink targetId="cooperations" text="Współprace" />
-        </ul>
-        <RegisterButton
-          modalState={context!.isRegistrationOpen}
-          modalStateSetter={context!.setIsRegistrationOpen}
-        />
-        <HeaderDrawer />
+        <nav aria-label="Menu główne" className="hidden lg:block">
+          <ul className="flex items-center gap-5 text-sm text-slate-700 xl:gap-7 xl:text-base">
+            {navigation.map((item) => <li key={item.targetId}><HeaderLink {...item} /></li>)}
+          </ul>
+        </nav>
+        <div className="contents sm:flex sm:items-center sm:gap-3">
+          <div className="order-last grid w-full grid-cols-2 gap-3 sm:order-none sm:flex sm:w-auto">
+            <RegisterButton isRegistrationOpen={context.isRegistrationOpen} setIsRegistrationOpen={context.setIsRegistrationOpen} className="px-3 text-xs sm:px-4 sm:text-sm" />
+            <DirectionsButton className="px-3 text-xs sm:px-4 sm:text-sm" />
+          </div>
+          <HeaderDrawer />
+        </div>
       </div>
-      <RegistrationCards modalState={context!.isRegistrationOpen} />
-    </nav>
+      <RegistrationCards isRegistrationOpen={context.isRegistrationOpen} onClose={() => context.setIsRegistrationOpen(false)} />
+    </header>
   );
-};
-
-export default Header;
+}
