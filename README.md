@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IPF Hellwig
 
-## Getting Started
+Strona gabinetu fizjoterapii i rehabilitacji IPF Hellwig w Malborku.
+Docelowa domena: https://www.ipf-hellwig.com/.
 
-First, run the development server:
+## Środowisko
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+- Next.js 16.3.8, App Router i React 19.3.0.
+- Node.js 24.x (określony w package.json i .nvmrc).
+- pnpm 9.15.9 (określony w packageManager).
+
+## Uruchomienie
+
+```sh
+pnpm install --frozen-lockfile
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Podgląd: http://localhost:3000/. Główna strona znajduje się w src/app/page.tsx.
+Projekt używa fontu Poppins ładowanego przez next/font/google.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Sprawdzenie i kompilacja
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```sh
+pnpm lint
+pnpm typecheck
+pnpm build
+pnpm start
+```
 
-## Learn More
+Turbopack jest domyślnym kompilatorem w Next.js 16. Skrypt build uruchamia
+ESLint przed kompilacją, ponieważ sam next build nie sprawdza już reguł ESLint.
+Kompilacja sprawdza również typy TypeScript.
 
-To learn more about Next.js, take a look at the following resources:
+## Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Katalog główny projektu musi wskazywać folder zawierający ten package.json.
+Vercel odczytuje Node.js 24.x z engines.node. Polecenie kompilacji: pnpm build.
+Pozostaw instalację jako automatyczną, aby Vercel wykrył menedżer z pliku zależności.
+Aby użyć dokładnie pnpm 9.15.9 z packageManager, włącz Corepack na Vercel przez
+zmienną ENABLE_EXPERIMENTAL_COREPACK=1. Sam override „pnpm install” może wybrać
+starszą wersję pnpm, więc bez Corepack nie ustawiaj takiego override.
+pnpm-lock.yaml jest podstawowym plikiem zależności; package-lock.json pozostaje
+aktualny dla instalacji przez npm.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Google Fonts na Windows
 
-## Deploy on Vercel
+Jeżeli lokalna kompilacja zgłasza problem połączenia z Google Fonts, uruchom
+poniższe polecenia w PowerShell. Turbopack użyje wtedy certyfikatów zaufanych
+przez system Windows, zachowując weryfikację TLS:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```powershell
+$env:NEXT_TURBOPACK_EXPERIMENTAL_USE_SYSTEM_TLS_CERTS = "1"
+pnpm build
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ta zmienna działa w bieżącej sesji terminala, także dla pnpm dev.
+Nie jest wymagana przez samą migrację na Vercel.

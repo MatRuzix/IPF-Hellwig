@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { EmblaCarouselType } from "embla-carousel";
+import { useCallback, useSyncExternalStore } from "react";
+import type { EmblaCarouselType } from "embla-carousel";
 
 type UsePrevNextButtonsType = {
   prevBtnDisabled: boolean;
@@ -11,37 +11,23 @@ type UsePrevNextButtonsType = {
 const usePrevNextButtons = (
   emblaApi: EmblaCarouselType | undefined
 ): UsePrevNextButtonsType => {
-  const [prevBtnDisabled, setPrevBtnDisabled] = useState(true);
-  const [nextBtnDisabled, setNextBtnDisabled] = useState(true);
-
-  const onPrevButtonClick = useCallback(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollPrev();
+  const subscribe = useCallback((onChange: () => void) => {
+    if (!emblaApi) return () => {};
+    emblaApi.on("reInit", onChange).on("select", onChange);
+    return () => {
+      emblaApi.off("reInit", onChange).off("select", onChange);
+    };
   }, [emblaApi]);
 
-  const onNextButtonClick = useCallback(() => {
-    if (!emblaApi) return;
-    emblaApi.scrollNext();
-  }, [emblaApi]);
+  const canScrollPrev = useCallback(() => emblaApi?.canScrollPrev() ?? false, [emblaApi]);
+  const canScrollNext = useCallback(() => emblaApi?.canScrollNext() ?? false, [emblaApi]);
+  const prevBtnDisabled = !useSyncExternalStore(subscribe, canScrollPrev, () => false);
+  const nextBtnDisabled = !useSyncExternalStore(subscribe, canScrollNext, () => false);
 
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setPrevBtnDisabled(!emblaApi.canScrollPrev());
-    setNextBtnDisabled(!emblaApi.canScrollNext());
-  }, []);
+  const onPrevButtonClick = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const onNextButtonClick = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onSelect(emblaApi);
-    emblaApi.on("reInit", onSelect).on("select", onSelect);
-  }, [emblaApi, onSelect]);
-
-  return {
-    prevBtnDisabled,
-    nextBtnDisabled,
-    onPrevButtonClick,
-    onNextButtonClick,
-  };
+  return { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick };
 };
 
 export default usePrevNextButtons;

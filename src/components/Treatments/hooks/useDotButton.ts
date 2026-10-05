@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { EmblaCarouselType } from "embla-carousel";
+import { useCallback, useSyncExternalStore } from "react";
+import type { EmblaCarouselType } from "embla-carousel";
 
 type UseDotButtonType = {
   selectedIndex: number;
@@ -7,44 +7,35 @@ type UseDotButtonType = {
   onDotButtonClick: (index: number) => void;
 };
 
+const emptyScrollSnaps: number[] = [];
+
 const useDotButton = (
   emblaApi: EmblaCarouselType | undefined,
   onButtonClick?: (emblaApi: EmblaCarouselType) => void
 ): UseDotButtonType => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const subscribe = useCallback((onChange: () => void) => {
+    if (!emblaApi) return () => {};
+    emblaApi.on("reInit", onChange).on("select", onChange);
+    return () => {
+      emblaApi.off("reInit", onChange).off("select", onChange);
+    };
+  }, [emblaApi]);
+
+  const getSelectedIndex = useCallback(() => emblaApi?.selectedScrollSnap() ?? 0, [emblaApi]);
+  const getScrollSnaps = useCallback(() => emblaApi?.scrollSnapList() ?? emptyScrollSnaps, [emblaApi]);
+  const selectedIndex = useSyncExternalStore(subscribe, getSelectedIndex, () => 0);
+  const scrollSnaps = useSyncExternalStore(subscribe, getScrollSnaps, () => emptyScrollSnaps);
 
   const onDotButtonClick = useCallback(
     (index: number) => {
       if (!emblaApi) return;
       emblaApi.scrollTo(index);
-      if (onButtonClick) onButtonClick(emblaApi);
+      onButtonClick?.(emblaApi);
     },
     [emblaApi, onButtonClick]
   );
 
-  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
-    setScrollSnaps(emblaApi.scrollSnapList());
-  }, []);
-
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onInit(emblaApi);
-    onSelect(emblaApi);
-
-    emblaApi.on("reInit", onInit).on("reInit", onSelect).on("select", onSelect);
-  }, [emblaApi, onInit, onSelect]);
-
-  return {
-    selectedIndex,
-    scrollSnaps,
-    onDotButtonClick,
-  };
+  return { selectedIndex, scrollSnaps, onDotButtonClick };
 };
 
 export default useDotButton;

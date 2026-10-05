@@ -49,7 +49,7 @@ export default function HeroCarousel() {
     <div className="relative h-full" role="region" aria-label="Zdjęcia gabinetu">
       <div className="h-full overflow-hidden" ref={emblaRef}>
         <div className="flex h-full">
-          {photos.map((photo, index) => <div key={photo.src} className="relative h-full min-w-0 flex-[0_0_100%]"><Image src={photo.src} alt={photo.alt} fill priority={index === 0} sizes="(max-width: 1023px) 100vw, 50vw" className="object-cover" /></div>)}
+          {photos.map((photo, index) => <div key={photo.src} className="relative h-full min-w-0 flex-[0_0_100%]"><Image src={photo.src} alt={photo.alt} fill preload={index === 0} sizes="(max-width: 1023px) 100vw, 50vw" className="object-cover" /></div>)}
         </div>
       </div>
       <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3">

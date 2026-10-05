@@ -19,7 +19,7 @@ export default function Header() {
       <SecondaryHeader />
       <div className="site-container flex flex-wrap items-center justify-between gap-x-2 gap-y-1 py-2 sm:h-[72px] sm:flex-nowrap sm:py-0 md:h-[88px] lg:gap-4">
         <HeaderLink targetId="hero" className="flex shrink-0 items-center">
-          <Image src="/logo-ipf.png" alt="IPF Hellwig" width={480} height={73} priority sizes="(max-width: 639px) 150px, 240px" className="h-auto w-[clamp(110px,34vw,160px)] sm:w-52 lg:w-60" />
+          <Image src="/logo-ipf.png" alt="IPF Hellwig" width={480} height={73} preload sizes="(max-width: 639px) 150px, 240px" className="h-auto w-[clamp(110px,34vw,160px)] sm:w-52 lg:w-60" />
         </HeaderLink>
         <nav aria-label="Menu główne" className="hidden lg:block">
           <ul className="flex items-center gap-5 text-sm text-slate-700 xl:gap-7 xl:text-base">
